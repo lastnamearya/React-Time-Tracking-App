@@ -9,7 +9,7 @@ class TimersDashboard extends React.Component {
           {/* Component for Showing + Button */}
           <ToggleableTimerForm
           // Passing additional Prop isOpen={true}, when true display the form to create new timer
-            isOpen={true}
+            isOpen={false}
           />
         </div>
       </div>
@@ -33,7 +33,7 @@ class EditableTimerList extends React.Component {
         />
         {/* This Component will render a Timer's Edit Form */}
         <EditableTimer 
-          title="Learn Extreme ironing"
+          title="Learn Component in-depth"
           project="World Domination"
           elapsed="3890985"
           runningSince={null}
@@ -108,11 +108,13 @@ class ToggleableTimerForm extends React.Component {
         <TimerForm />
       );
     } else {
-      <div className="ui basic content center aligned segment">
-        <button className="ui basic button icon">
-          <i className="plus-icon" />
-        </button>
-      </div>
+      return (
+        <div className="ui basic content center aligned segment">
+          <button className="ui basic button icon">
+            <i className="plus icon" />
+          </button>
+        </div>
+      );
     }
   }
 }
