@@ -99,3 +99,20 @@ class TimerForm extends React.Component {
     );
   }
 }
+
+class ToggleableTimerForm extends React.Component {
+  render () {
+    if (this.props.isOpen) {
+      return (
+        // TimerFom doesn't receive any props from ToggleableTimerForm, as such it's title and project fields will be rendered empty.
+        <TimerForm />
+      );
+    } else {
+      <div className="ui basic content center aligned segment">
+        <button className="ui basic button icon">
+          <i className="plus-icon" />
+        </button>
+      </div>
+    }
+  }
+}
