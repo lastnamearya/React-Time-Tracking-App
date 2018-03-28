@@ -87,8 +87,20 @@ class EditableTimer extends React.Component {
 }
 
 class TimerForm extends React.Component {
+  state = {
+    title: this.props.title || "",
+    project: this.props.project || "",
+  };
+
+  handleTitleChange = (e) => {
+    this.setState({title: e.target.value});
+  };
+
+  handleProjectChange = (e) => {
+    this.setState({project: e.target.value});
+  };
+
   render() {
-    // this.props.title to determine what text the submit button at the bottom of the form should display. If title is present, we know we're editing an existing timer, so it displays update. Otherwise it displays "Create".
     const submitText = this.props.title ? 'Update' : 'Create';
     return (
       <div className="ui centered card">
@@ -96,12 +108,21 @@ class TimerForm extends React.Component {
           <div className="ui form">
             <div className="field">
               <label>Title</label>
-              <input type="text" defaultValue={this.props.title} />
+              <input 
+                type="text" 
+                value={this.state.title} 
+                // React's onChange attribute, React will invoke the function specified.
+                onChange={this.handleTitleChange}
+              />
             </div>
             <div className="field">
               <label>Project</label>
-              {/* defaultValue - React Property, when the form is used for editing as it is here, this set the fields to current values of the timer as desired */}
-              <input type="text" defaultValue={this.props.project} />
+              <input 
+                type="text" 
+                value={this.state.project} 
+                // React's onChange attribute, React will invoke the function specified.
+                onChange={this.handleProjectChange}
+              />
             </div>  
             <div className="ui two bottom attached buttons">
               <button className="ui basic blue button">
