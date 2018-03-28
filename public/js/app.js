@@ -33,7 +33,7 @@ class TimersDashboard extends React.Component {
     this.updateTimer(attrs);
   };
 
-  updateTimer = (attr) => {
+  updateTimer = (attrs) => {
     this.setState( {
       timers: this.state.timers.map((timer) => {
         if(timer.id === attrs.id) {
@@ -68,6 +68,8 @@ class TimersDashboard extends React.Component {
   }
 }
 
+// ********************************************************************* //
+
 class EditableTimerList extends React.Component {
   render() {
       const timers = this.props.timers.map((timer) => (
@@ -89,6 +91,8 @@ class EditableTimerList extends React.Component {
       );
   }
 }
+
+// ********************************************************************* //
 
 class EditableTimer extends React.Component {
   state = {
@@ -143,6 +147,8 @@ class EditableTimer extends React.Component {
     }
   }
 }
+
+// ********************************************************************* //
 
 class TimerForm extends React.Component {
   state = {
@@ -213,6 +219,8 @@ class TimerForm extends React.Component {
   }
 }
 
+// ********************************************************************* //
+
 class ToggleableTimerForm extends React.Component {
   state = {
     isOpen: false,
@@ -256,6 +264,8 @@ class ToggleableTimerForm extends React.Component {
   }
 }
 
+// ********************************************************************* //
+
 class Timer extends React.Component {
   render() {
     const elapsedString = helpers.renderElapsedString(this.props.elapsed);
@@ -292,6 +302,8 @@ class Timer extends React.Component {
     );
   }
 }
+
+// ********************************************************************* //
 
 ReactDOM.render(
   <TimersDashboard />,
