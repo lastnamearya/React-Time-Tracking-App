@@ -119,8 +119,17 @@ class TimerForm extends React.Component {
 }
 
 class ToggleableTimerForm extends React.Component {
+  state = {
+    isOpen: false,
+  };
+
+  // This function will toggle the state of the form to open:
+  handleFormOpen = () => {
+    this.setState({ isOpen: true });
+  };
+
   render () {
-    if (this.props.isOpen) {
+    if (this.state.isOpen) {
       return (
         // TimerFom doesn't receive any props from ToggleableTimerForm, as such it's title and project fields will be rendered empty.
         <TimerForm />
@@ -128,7 +137,10 @@ class ToggleableTimerForm extends React.Component {
     } else {
       return (
         <div className="ui basic content center aligned segment">
-          <button className="ui basic button icon">
+          <button 
+            className="ui basic button icon"
+            onClick={this.handleFormOpen}
+          >
             <i className="plus icon" />
           </button>
         </div>
