@@ -37,29 +37,22 @@ class TimersDashboard extends React.Component {
 
 class EditableTimerList extends React.Component {
   render() {
-    return (
-      <div id="timers">
-      {/* This component will render the Timer's Face */}
-        <EditableTimer 
-        // Passing additonal props to our EditableTimer Component
-          title="Learn React"
-          project="Web Domination"
-          elapsed="8986300"
-          runningSince={null}
-          // Edit form
-          editFormOpen={false}
+      const timers = this.props.timers.map((timer) => (
+        <EditableTimer
+          key={timer.id}
+          id={timer.id}
+          title={timer.title}
+          project={timer.project}
+          elapsed={timer.elapsed}
+          runningSince={timer.runningSince}
         />
-        {/* This Component will render a Timer's Edit Form */}
-        <EditableTimer 
-          title="Learn Component in-depth"
-          project="World Domination"
-          elapsed="3890985"
-          runningSince={null}
-          // This is will decide, what to display --> Timer, Timer Form
-          editFormOpen={true}
-        />
-      </div>
-    );
+      ));
+
+      return (
+        <div id="timers">
+          {timers}
+        </div>
+      );
   }
 }
 
