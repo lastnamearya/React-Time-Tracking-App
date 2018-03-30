@@ -1,22 +1,22 @@
 class TimersDashboard extends React.Component {
+  // Before Inital Render, React initializes the component.state is set to an object with the property timers, a blank array is returned. 
   state = {
-    timers: [
-      {
-        title: "Practice squat",
-        project: "Gym Chores",
-        id: uuid.v4(),
-        elapsed: 5456099,
-        runningSince: Date.now(),
-      },
-      {
-        title: "Bake squash",
-        project: "Kitchen Chores",
-        id: uuid.v4(),
-        elapsed: 1273998,
-        runningSince: null,
-      },
-    ],
+    timers: [],
   };
+
+  componentDidMount() {
+    this.loadTimersFromServer();
+    setInterval(this.loadTimersFromServer, 5000);
+  }
+
+  loadTimersFromServer = () => {
+    // Asyn call using client.js library to get Timers stored in our App Database
+    client.getTimers((serverTimers) => (
+      this.setState({ timers: serverTimers })
+      )
+    );
+  }
+  // .....
 
   handleCreateFormSubmit = (timer) => {
     this.createTimer(timer);
@@ -423,3 +423,4 @@ ReactDOM.render(
   <TimersDashboard />,
   document.getElementById('content')
 );
+
