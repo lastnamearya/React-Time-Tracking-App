@@ -27,6 +27,8 @@ class TimersDashboard extends React.Component {
     this.setState({
       timers: this.state.timers.concat(t),
     });
+
+    client.createTimer(t);
   };
 
   handleEditFormSubmit = (attrs) => {
@@ -46,6 +48,8 @@ class TimersDashboard extends React.Component {
         }
       }),
     });
+
+    client.updateTimer(attrs);
   };
 
   handleTrashClick = (timerId) => {
@@ -56,6 +60,10 @@ class TimersDashboard extends React.Component {
     this.setState({
       timers: this.state.timers.filter(t => t.id !== timerId),
     });
+
+    client.deleteTimer(
+      { id: timerId }
+    );
   };
 
   handleStartClick = (timerId) => {
@@ -76,7 +84,12 @@ class TimersDashboard extends React.Component {
         }
       }),
     });
+
+    client.startTimer(
+      { id: timerId, start: now}
+    );
   };
+
 
   handleStopClick = (timerId) => {
     this.stopTimer(timerId);
@@ -98,7 +111,11 @@ class TimersDashboard extends React.Component {
         }
       }),
     });
-  }
+
+    client.stopTimer(
+      { id: timerId, stop: now}
+    );
+  };
 
   render() {
     return (
