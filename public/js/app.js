@@ -288,6 +288,14 @@ class Timer extends React.Component {
     clearInterval(this.forceUpdateInterval);
   }
 
+  handleStartClick = () => {
+    this.props.onStartClick(this.props.id);
+  };
+
+  handleStopClick = () => {
+    this.props.onStopClick(this.props.id);
+  };
+
   handleTrashClick = () => {
     this.props.onTrashClick(this.props.id);
   };
@@ -323,11 +331,41 @@ class Timer extends React.Component {
             </span>
           </div>
         </div>
-        <div className="ui bottom attached blue basic button">
-          Start
-        </div>
+        <TimerActionButton
+        // timerIsRunning --> !! returns false when runningSince is null. 
+          timerIsRunning={!!this.props.runningSince}
+          onStartClick={this.handleStartClick}
+          onStopClick={this.handleStopClick}
+        />
       </div>
     );
+  }
+}
+
+// ********************************************************************* //
+
+class TimerActionButton extends React.Component {
+  render() {
+    // We render one HTML snippet or another based on this.props.timerIsRunning
+    if (this.props.timerIsRunning) {
+      return (
+        <div
+          className="ui botton attached red basic button"
+          onClick={this.props.onStopClick}
+        >
+          Stop
+        </div>
+      );
+    } else {
+      return (
+        <div  
+          className="ui bottom attached green basic button"
+          onClick={this.props.onStartClick}
+        >
+          Start
+        </div>
+      );
+    }
   }
 }
 
