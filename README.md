@@ -1,3 +1,5 @@
+[[![Timers2.jpg](https://s18.postimg.org/p1rx6qh0p/Timers2.jpg)](https://postimg.org/image/93j7glmsl/)](https://github.com/lastnamearya)
+
 # Running the app :watch:
 
 ### Ensure you have `npm` installed.
@@ -16,7 +18,6 @@ npm run server
 
 App :watch: is live at [localhost:3000](localhost:3000)
 
-[![Screen_Shot_2018-03-30_at_6.13.14_PM.png](https://s7.postimg.org/n2nj0hrwr/Screen_Shot_2018-03-30_at_6.13.14_PM.png)](https://postimg.org/image/yf04ia0lj/)
 
 ## This app is part of my 100 Days of JavaScript :zap:
 
