@@ -1,4 +1,6 @@
-[[![Timers2.jpg](https://s18.postimg.org/p1rx6qh0p/Timers2.jpg)](https://postimg.org/image/93j7glmsl/)](https://github.com/lastnamearya)
+# Timers :alarm_clock:
+
+[![Timers2.jpg](https://s18.postimg.org/p1rx6qh0p/Timers2.jpg)](https://github.com/lastnamearya)
 
 # Running the app :watch:
 
